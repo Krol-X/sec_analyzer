@@ -2,62 +2,56 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Inertia\Inertia;
-use Inertia\Response;
+use App\Models\Profile;
+use App\Http\Resources\ProfileResource;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): Response
+    public function index()
     {
-        return Inertia::render('Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
-        ]);
+        $profiles = Profile::all();
+        return ProfileResource::collection($profiles);
     }
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function store(Request $request)
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit');
-    }
-
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'password' => ['required', 'current_password'],
+        $validated = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'name' => 'required|string|max:255',
+            'broker' => 'required|string|max:255',
+            'token' => 'required|string|max:255'
         ]);
 
-        $user = $request->user();
+        $profile = Profile::create($validated);
+        return new ProfileResource($profile);
+    }
 
-        Auth::logout();
+    public function show($id)
+    {
+        $profile = Profile::findOrFail($id);
+        return new ProfileResource($profile);
+    }
 
-        $user->delete();
+    public function update(Request $request, $id)
+    {
+        $profile = Profile::findOrFail($id);
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $validated = $request->validate([
+            'user_id' => 'exists:users,id',
+            'name' => 'string|max:255',
+            'broker' => 'string|max:255',
+            'token' => 'string|max:255'
+        ]);
 
-        return Redirect::to('/');
+        $profile->update($validated);
+        return new ProfileResource($profile);
+    }
+
+    public function destroy($id)
+    {
+        $profile = Profile::findOrFail($id);
+        $profile->delete();
+        return response()->json(null, 204);
     }
 }
