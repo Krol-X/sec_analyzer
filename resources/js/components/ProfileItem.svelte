@@ -12,7 +12,8 @@
 
   const schema = yup.object({
     name: yup.string().required(),
-    broker_name: yup.string().required(),
+    brokerId: yup.number(),
+    brokerName: yup.string().required(),
   })
 </script>
 
@@ -22,10 +23,10 @@
   </div>
 {:else}
   <ParamsCheck {schema} {data}>
-  <li class='profile-item border border-black bg-white'>
-    <div>{data.name}</div>
-    <div>{data.broker_name}</div>
-  </li>
+    <li class='profile-item border border-black bg-white'>
+      <div>{data.name}</div>
+      <div>{data.brokerName}</div>
+    </li>
   </ParamsCheck>
 {/if}
 

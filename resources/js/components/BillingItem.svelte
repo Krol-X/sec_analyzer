@@ -13,7 +13,7 @@
   const schema = yup.object({
     name: yup.string().required(),
     value: yup.string().required(),
-    sec_count: yup.string(),
+    secCount: yup.string(),
   })
 </script>
 
@@ -23,15 +23,15 @@
   </div>
 {:else}
   <ParamsCheck {schema} {data}>
-  <li class='portfolio-item border border-black bg-white'>
-    <div class='flex flex-col'>
-      <div>{data.name}</div>
-      <div class='text-3xl'>{data.value}</div>
-    </div>
-    {#if data.sec_count}
-      <div>{data.sec_count}</div>
-    {/if}
-  </li>
+    <li class='portfolio-item border border-black bg-white'>
+      <div class='flex flex-col'>
+        <div>{data.name}</div>
+        <div class='text-3xl'>{data.value}</div>
+      </div>
+      {#if data.secCount}
+        <div>{data.secCount}</div>
+      {/if}
+    </li>
   </ParamsCheck>
 {/if}
 

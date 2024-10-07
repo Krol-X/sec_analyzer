@@ -1,15 +1,19 @@
 <script>
+  import { onMount } from 'svelte'
   import AuthLayout from '@/layouts/Auth.svelte'
   import List from '@/core/List.svelte'
   import ProfileItem from '@/components/ProfileItem.svelte'
+  import { state } from '@/state'
 
-  let data = [
-    {name: 'Профиль 1', broker_name: 'Tinkoff'},
-    {name: 'Профиль 2', broker_name: 'Tinkoff'},
-    {name: 'Профиль 3', broker_name: 'Sberbank'},
-  ]
+  async function loadData() {
+    await state.profiles.loadItems()
+  }
+  
+  onMount(async() => {
+    await loadData()
+  })
 </script>
 
 <AuthLayout>
-  <List {data} item={ProfileItem} hasLastItem=true class='flex flex-col gap-2' />
+  <List data={state.profiles} item={ProfileItem} hasLastItem=true class='flex flex-col gap-2' />
 </AuthLayout>

@@ -10,11 +10,20 @@
 
   export let itemClass = undefined
   export let itemStyle = undefined
+
+  import { isFunction } from '@/utils/types'
 </script>
 
 <div class={className} style={styles}>
   {#if Array.isArray(data)}
     {#each data as itemData}
+      <svelte:component
+        this={item} data={itemData}
+        class={itemClass} style={itemStyle}
+      />
+    {/each}
+  {:else if isFunction(data.subscribe)}
+    {#each $data as itemData}
       <svelte:component
         this={item} data={itemData}
         class={itemClass} style={itemStyle}

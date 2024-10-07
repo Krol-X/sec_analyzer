@@ -1,5 +1,5 @@
 <script>
-  import {isFunction} from '@/utils/types'
+  import { isFunction } from '@/utils/types'
 
   export let schema // yup.InferType
   export let data // input data
