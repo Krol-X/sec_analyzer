@@ -27,6 +27,7 @@
 		"@inertiajs/svelte": "^1.2.0",
 		"@sveltestrap/sveltestrap": "^6.2.7",
 		"lodash": "^4.17.21",
-		"postcss-import": "^16.1.0"
+		"postcss-import": "^16.1.0",
+		"sass": "^1.79.4"
 	}
 }

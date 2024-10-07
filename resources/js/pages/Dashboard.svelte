@@ -6,13 +6,14 @@
 	/* svelte-ignore unused-export-let */
 	export let auth = {};
 	import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.svelte';
+	import AuthLayout from '@/Layouts/Auth.svelte';
 </script>
 
 <svelte:head>
 	<title>Dashboard</title>
 </svelte:head>
 
-<BreezeAuthenticatedLayout>
+<AuthLayout>
 	<h2 class="font-semibold text-xl text-gray-800 leading-tight" slot="header">Dashboard</h2>
 
 	<div class="py-12">
@@ -22,4 +23,4 @@
 			</div>
 		</div>
 	</div>
-</BreezeAuthenticatedLayout>
+</AuthLayout>
