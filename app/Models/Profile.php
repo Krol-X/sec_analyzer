@@ -10,7 +10,7 @@ class Profile extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'name', 'broker', 'token'
+        'user_id', 'name', 'broker_id', 'token'
     ];
 
     public function user()
@@ -18,8 +18,8 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function portfolios()
+    public function billings()
     {
-        return $this->hasMany(Portfolio::class);
+        return $this->hasMany(Billing::class);
     }
 }

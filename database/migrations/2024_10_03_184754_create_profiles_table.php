@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->string('broker');
+            $table->integer('broker_id');
             $table->string('token');
             $table->timestamps();
         });

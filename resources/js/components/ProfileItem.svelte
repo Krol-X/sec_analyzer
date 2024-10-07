@@ -13,7 +13,7 @@
   const schema = yup.object({
     name: yup.string().required(),
     brokerId: yup.number(),
-    brokerName: yup.string().required(),
+    brokerName: yup.string(),
   })
 </script>
 

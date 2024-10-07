@@ -9,7 +9,7 @@ export function createProfilesStore() {
     set,
     update,
     loadItems: async () => {
-      const response = await api.profiles_mock.read()
+      const response = await api.profiles.read()
       set(response?.data ?? [])
     }
   }

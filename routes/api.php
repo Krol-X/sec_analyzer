@@ -1,15 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PortfolioController;
-use App\Http\Controllers\SecurityController;
+use App\Http\Controllers\ProfilesController;
+use App\Http\Controllers\BillingsController;
+use App\Http\Controllers\SecuritiesController;
 
-// Profiles
-Route::apiResource('profiles', ProfileController::class);
-
-// Portfolios
-Route::apiResource('portfolios', PortfolioController::class);
-
-// Securities
-Route::apiResource('securities', SecurityController::class);
+Route::apiResource('api/profiles', ProfilesController::class);
+Route::apiResource('api/billings', BillingsController::class);
+Route::apiResource('api/securities', SecuritiesController::class);

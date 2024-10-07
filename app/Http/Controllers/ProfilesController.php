@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Profile;
 use App\Http\Resources\ProfileResource;
 
-class ProfileController extends Controller
+class ProfilesController extends Controller
 {
     public function index()
     {
@@ -17,9 +17,8 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',
             'name' => 'required|string|max:255',
-            'broker' => 'required|string|max:255',
+            'brokerId' => 'required|number',
             'token' => 'required|string|max:255'
         ]);
 
@@ -38,9 +37,8 @@ class ProfileController extends Controller
         $profile = Profile::findOrFail($id);
 
         $validated = $request->validate([
-            'user_id' => 'exists:users,id',
             'name' => 'string|max:255',
-            'broker' => 'string|max:255',
+            'brokerId' => 'number',
             'token' => 'string|max:255'
         ]);
 

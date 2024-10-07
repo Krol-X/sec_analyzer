@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('isin');
             $table->string('figi')->nullable();
-            $table->foreignId('portfolio_id')->constrained()->onDelete('cascade');
+            $table->foreignId('billing_id')->constrained()->onDelete('cascade');
             $table->string('company_name');
             $table->decimal('value', 15, 2);
             $table->timestamps();

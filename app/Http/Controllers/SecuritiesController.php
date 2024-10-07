@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Security;
 use App\Http\Resources\SecurityResource;
 
-class SecurityController extends Controller
+class SecuritiesController extends Controller
 {
     public function index()
     {
