@@ -34,9 +34,13 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/about', function () {
-    return Inertia::render('About');
-})->middleware(['auth', 'verified'])->name('about');
+Route::get('/profiles', function () {
+    return Inertia::render('Profiles');
+})->middleware(['auth', 'verified'])->name('profiles');
+
+Route::get('/billings', function () {
+    return Inertia::render('Billings');
+})->middleware(['auth', 'verified'])->name('billings');
 
 // Links
 Route::get('/links', [LinkController::class, 'index'])->middleware(['auth', 'verified'])->name('links.index');

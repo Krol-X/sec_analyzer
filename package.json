@@ -28,6 +28,7 @@
 		"@sveltestrap/sveltestrap": "^6.2.7",
 		"lodash": "^4.17.21",
 		"postcss-import": "^16.1.0",
-		"sass": "^1.79.4"
+		"sass": "^1.79.4",
+		"yup": "^1.4.0"
 	}
 }

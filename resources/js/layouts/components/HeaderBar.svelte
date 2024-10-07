@@ -7,8 +7,10 @@
   }
 </script>
 
-<header class="bg-black text-white flex items-center lg:px-48 sm:px-24 px-0 gap-4 lg:h-16 h-12 lg:text-xl w-full">
-  <button class="lg:w-48 w-36 text-left">Профиль</button>
+<header class="bg-black text-white flex items-center sm:px-24 px-0 gap-4 lg:h-16 h-12 lg:text-xl w-full">
+  <button class="lg:w-48 w-36 text-left" use:inertia={{ href: '/profiles' }}>
+    Профиль
+  </button>
   <h1 class="flex-grow lg:text-2xl sm:text-lg">Заголовок</h1>
   <div class="relative">
     <button class="lg:w-48 w-36 text-right" on:click={toggleUserMenu}>Пользователь</button>
