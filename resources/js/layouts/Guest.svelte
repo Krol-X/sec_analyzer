@@ -1,5 +1,5 @@
 <script>
-	import BreezeApplicationLogo from '@/components/ApplicationLogo.svelte';
+	import BreezeApplicationLogo from '@/components_old/ApplicationLogo.svelte';
 	import { Link } from '@inertiajs/svelte';
 </script>
 

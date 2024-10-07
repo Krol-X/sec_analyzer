@@ -1,9 +1,9 @@
 <script>
-	import BreezeApplicationLogo from '@/Components/ApplicationLogo.svelte';
-	import BreezeDropdown from '@/Components/Dropdown.svelte';
-	import BreezeDropdownLink from '@/Components/DropdownLink.svelte';
-	import BreezeNavLink from '@/Components/NavLink.svelte';
-	import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.svelte';
+	import BreezeApplicationLogo from '@/components_old/ApplicationLogo.svelte';
+	import BreezeDropdown from '@/components_old/Dropdown.svelte';
+	import BreezeDropdownLink from '@/components_old/DropdownLink.svelte';
+	import BreezeNavLink from '@/components_old/NavLink.svelte';
+	import BreezeResponsiveNavLink from '@/components_old/ResponsiveNavLink.svelte';
 	import { page, Link } from '@inertiajs/svelte';
 
 	let showingNavigationDropdown = false;

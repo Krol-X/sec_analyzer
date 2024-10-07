@@ -1,10 +1,10 @@
 <script>
-	import BreezeButton from '@/Components/Button.svelte';
-	import BreezeCheckbox from '@/Components/Checkbox.svelte';
+	import BreezeButton from '@/components_old/Button.svelte';
+	import BreezeCheckbox from '@/components_old/Checkbox.svelte';
 	import BreezeGuestLayout from '@/Layouts/Guest.svelte';
-	import BreezeInput from '@/Components/Input.svelte';
-	import BreezeLabel from '@/Components/Label.svelte';
-	import BreezeValidationErrors from '@/Components/ValidationErrors.svelte';
+	import BreezeInput from '@/components_old/Input.svelte';
+	import BreezeLabel from '@/components_old/Label.svelte';
+	import BreezeValidationErrors from '@/components_old/ValidationErrors.svelte';
 	import { Link, useForm } from '@inertiajs/svelte';
 
 	let err = {};

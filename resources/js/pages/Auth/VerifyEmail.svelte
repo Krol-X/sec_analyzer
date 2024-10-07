@@ -1,5 +1,5 @@
 <script>
-	import BreezeButton from '@/Components/Button.svelte';
+	import BreezeButton from '@/components_old/Button.svelte';
 	import BreezeGuestLayout from '@/Layouts/Guest.svelte';
 	import { Link, useForm } from '@inertiajs/svelte';
 	let verificationLinkSent;
