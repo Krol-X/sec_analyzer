@@ -18,12 +18,12 @@
 </script>
 
 {#if last}
-  <div class='profile-item new-item-border'>
+  <div class='profile-item new-item-border {className}' style={styles}>
     Добавить профиль
   </div>
 {:else}
   <ParamsCheck {schema} {data}>
-    <li class='profile-item border border-black bg-white'>
+    <li class='profile-item border border-black bg-white {className}' style={styles}>
       <div>{data.name}</div>
       <div>{data.brokerName}</div>
     </li>

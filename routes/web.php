@@ -42,6 +42,10 @@ Route::get('/billings', function () {
     return Inertia::render('Billings');
 })->middleware(['auth', 'verified'])->name('billings');
 
+Route::get('/test', function () {
+    return Inertia::render('Test');
+})->middleware(['auth', 'verified'])->name('test');
+
 // Links
 Route::get('/links', [LinkController::class, 'index'])->middleware(['auth', 'verified'])->name('links.index');
 Route::post('/links', [LinkController::class, 'store'])->name('links.store');

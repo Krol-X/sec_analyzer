@@ -18,12 +18,12 @@
 </script>
 
 {#if last}
-  <div class='portfolio-item new-item-border'>
+  <div class='portfolio-item new-item-border {className}' style={styles}>
     <div>Добавить портфель</div>
   </div>
 {:else}
   <ParamsCheck {schema} {data}>
-    <li class='portfolio-item border border-black bg-white'>
+    <li class='portfolio-item border border-black bg-white {className}' style={styles}>
       <div class='flex flex-col'>
         <div>{data.name}</div>
         <div class='text-3xl'>{data.value}</div>
