@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 use App\Http\Resources\ProfileResource;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilesController extends Controller
 {
@@ -18,9 +19,13 @@ class ProfilesController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'brokerId' => 'required|number',
+            // 'brokerId' => 'required|number', todo
             'token' => 'required|string|max:255'
         ]);
+
+        $user = Auth::user();
+        $validated['user_id'] = $user->id;
+        $validated['broker_id'] = 0;
 
         $profile = Profile::create($validated);
         return new ProfileResource($profile);
@@ -38,7 +43,7 @@ class ProfilesController extends Controller
 
         $validated = $request->validate([
             'name' => 'string|max:255',
-            'brokerId' => 'number',
+            // 'brokerId' => 'number', todo
             'token' => 'string|max:255'
         ]);
 

@@ -11,7 +11,10 @@ export const brokers_mock = {
 }
 
 export const profiles = {
-  read: api_method('get', 'profiles')
+  create: api_method('post', 'profiles'),
+  read: api_method('get', 'profiles'),
+  update: api_method('put', 'profiles'),
+  delete: api_method('delete', 'profiles')
 }
 export const profiles_mock = {
   read: fake_api_method('get', 'profiles', () => ({
