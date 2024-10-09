@@ -1,13 +1,19 @@
 <script>
+  import { get } from 'svelte/store'
   import { Form, Group, Column, Row, Text, Input, Select, Button } from '@/core/form'
 
-  let dialogState
-  export {dialogState as state}
+  export let state
+  const dialogState = state.dialog
 
-  export let onSave = (formState) => {
+  const onSave = (formState) => {
+    state.profiles.updateItem(get(formState.data))
     dialogState.close()
   }
-  export let onClose = (formState) => {
+  const onClose = (formState) => {
+    dialogState.close()
+  }
+  const onDelete = (formState) => {
+    state.profiles.deleteItem(get(formState.data).id)
     dialogState.close()
   }
 </script>
@@ -24,5 +30,8 @@
       <Button action={onSave} class='bg-black text-white'>Сохранить</Button>
       <Button action={onClose}>Закрыть</Button>
     </Row>
+    {#if !$dialogState?.is_new}
+      <Button action={onDelete} class='mt-2 bg-red-800 text-white'>Удалить</Button>
+    {/if}
   </Group>
 </Form>

@@ -11,6 +11,19 @@ export function createProfilesStore() {
     loadItems: async () => {
       const response = await api.profiles.read()
       set(response?.data ?? [])
+    },
+    deleteItem: async (id) => {
+      // await api.profiles.delete(id)
+      update(_ => _.filter(it => it.id != id))
+    },
+    updateItem: async (values) => {
+      const id = values.id
+      // await api.profiles.update(id, values)
+      update(_ => {
+        const idx = _.findIndex((it) => it.id == id)
+        _[idx] = Object.assign({}, values)
+        return _
+      })
     }
   }
 }

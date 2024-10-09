@@ -12,4 +12,4 @@
 	</div>
 </div>
 
-<Modal state={state.dialog} />
+<Modal {state} />
