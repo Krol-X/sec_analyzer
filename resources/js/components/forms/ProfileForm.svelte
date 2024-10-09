@@ -1,16 +1,23 @@
 <script>
   import { Form, Group, Column, Row, Text, Input, Select, Button } from '@/core/form'
 
-  export let onSave = (formState) => {}
-  export let onClose = (formState) => {}
+  let dialogState
+  export {dialogState as state}
+
+  export let onSave = (formState) => {
+    dialogState.close()
+  }
+  export let onClose = (formState) => {
+    dialogState.close()
+  }
 </script>
 
-<Form>
+<Form inital={$dialogState.data}>
   <Group>
     <Text>Профиль</Text>
     <Column>
       <Input name='name'>Наименование</Input>
-      <Select data={['Tinkoff', 'Sberbank']}>Броекер</Select>
+      <Select data={['Tinkoff', 'Sberbank']}>Брокер</Select>
       <Input name='token'>Токен</Input>
     </Column>
     <Row class='mt-4 gap-4'>

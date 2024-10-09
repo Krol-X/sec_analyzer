@@ -8,15 +8,15 @@
 </script>
 
 <script>
-  import { setContext } from 'svelte'
+  import { setContext, onMount } from 'svelte'
   import { writable } from 'svelte/store'
 
-  let group = ''
-  export { group as group }
+  export let group = ''
+  export let inital = {}
 
   const form = {
     group: writable(group),
-    data: writable({}),
+    data: writable(inital),
     to: (newGroup) => {
       console.log(newGroup)
       form.group.set(newGroup)

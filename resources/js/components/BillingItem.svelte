@@ -2,8 +2,8 @@
   export let data // Object
   export let last = false
 
-  let className = undefined
-  let styles = undefined
+  let className = ''
+  let styles = ''
   export { className as class }
   export { styles as style }
 

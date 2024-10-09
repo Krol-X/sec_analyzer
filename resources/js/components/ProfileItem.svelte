@@ -2,15 +2,18 @@
   export let data // Object
   export let last = false
 
-  let className = undefined
-  let styles = undefined
+  let className = ''
+  let styles = ''
   export { className as class }
   export { styles as style }
 
   import * as yup from 'yup'
   import ParamsCheck from '@/core/ParamsCheck.svelte'
 
+  export let onClick = (e, data, is_new) => {}
+
   const schema = yup.object({
+    id: yup.number().required(),
     name: yup.string().required(),
     brokerId: yup.number(),
     brokerName: yup.string(),
@@ -18,12 +21,16 @@
 </script>
 
 {#if last}
-  <div class='profile-item new-item-border {className}' style={styles}>
+  <div class='profile-item new-item-border {className}' style={styles}
+    on:click={(e) => onClick(e, {}, true)}
+  >
     Добавить профиль
   </div>
 {:else}
   <ParamsCheck {schema} {data}>
-    <li class='profile-item border border-black bg-white {className}' style={styles}>
+    <li class='profile-item border border-black bg-white {className}' style={styles}
+      on:click={(e) => onClick(e, data, false)}
+    >
       <div>{data.name}</div>
       <div>{data.brokerName}</div>
     </li>

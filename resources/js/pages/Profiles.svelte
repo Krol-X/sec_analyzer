@@ -8,12 +8,19 @@
   async function loadData() {
     await state.profiles.loadItems()
   }
-  
+
   onMount(async() => {
     await loadData()
   })
+
+  function onClick(e, data, is_new) {
+    state.dialog.openProfile(data, is_new)
+  }
 </script>
 
 <AuthLayout>
-  <List data={state.profiles} item={ProfileItem} hasLastItem=true class='flex flex-col gap-2' />
+  <List data={state.profiles} item={ProfileItem}
+    hasLastItem=true class='flex flex-col gap-2'
+    {onClick}
+  />
 </AuthLayout>

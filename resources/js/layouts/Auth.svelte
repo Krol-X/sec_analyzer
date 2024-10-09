@@ -1,5 +1,8 @@
 <script>
 	import HeaderBar from './components/HeaderBar.svelte'
+  import Modal from './components/Modal.svelte'
+
+  import { state } from '@/state'
 </script>
 
 <div class="flex min-h-screen flex-col w-screen">
@@ -8,3 +11,5 @@
 		<slot />
 	</div>
 </div>
+
+<Modal state={state.dialog} />

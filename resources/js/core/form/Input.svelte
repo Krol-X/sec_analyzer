@@ -11,12 +11,13 @@
 
   export let name = ''
   export let type = 'text'
-  export let value = ''
-  onMount(() => updateValue(value))
+  export let value = null
 
-  function updateValue(value) {
-    data.update(current => ({ ...current, [name]: value }))
-  }
+  onMount(() => {
+    if (value) {
+      $data[name] = value
+    }
+  })
 
   function typeAction(node) {
     node.type = type
@@ -25,7 +26,7 @@
 
 <div class={className} style={styles}>
   <slot></slot>
-  <input use:typeAction bind:value={$data[name]} on:input={(e) => updateValue(e.target.value)} {name}
+  <input use:typeAction bind:value={$data[name]} {name}
          class="app-input px-1 py-0 {controlClass}" style={controlStyle} />
   <slot name='after'></slot>
 </div>
