@@ -28,7 +28,7 @@ export function createProfilesStore() {
       } else {
         const {data: profile} = await api.profiles.create(null, values)
         update(_ => {
-          _[profile.id] = Object.assign({}, profile)
+          _.push(Object.assign({}, profile))
           return _
         })
       }
