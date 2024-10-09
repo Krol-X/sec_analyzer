@@ -1,5 +1,5 @@
 <script>
-  export let data // Array
+  export let data // Array/Store
   export let item // Component
   export let hasLastItem = false
 
@@ -18,14 +18,14 @@
 
 <div class={className} style={styles}>
   {#if Array.isArray(data)}
-    {#each data as itemData (itemData.id)}
+    {#each data as itemData}
       <svelte:component
         this={item} data={itemData} {onClick}
         class={itemClass} style={itemStyle}
       />
     {/each}
   {:else if isFunction(data.subscribe)}
-    {#each $data as itemData (itemData.id)}
+    {#each $data as itemData}
       <svelte:component
         this={item} data={itemData} {onClick}
         class={itemClass} style={itemStyle}
@@ -34,7 +34,7 @@
   {/if}
   {#if hasLastItem}
     <svelte:component
-      this={item} data=null {onClick} last=true
+      this={item} data={null} {onClick} last=true
       class={itemClass} style={itemStyle}
     />
   {/if}
