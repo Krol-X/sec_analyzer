@@ -20,7 +20,7 @@
   }
 </script>
 
-<AuthLayout>
+<AuthLayout title='Профили' noprofiles=true>
   <button class='border border-black p-1 bg-gray-200 mb-2 rounded'
     on:click={loadData}
   >

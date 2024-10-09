@@ -14,6 +14,6 @@
   })
 </script>
 
-<AuthLayout>
+<AuthLayout title='Счета'>
   <List data={state.billings} item={BillingItem} hasLastItem=true class='flex flex-wrap gap-8 justify-between' />
 </AuthLayout>

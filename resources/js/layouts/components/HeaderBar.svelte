@@ -1,5 +1,9 @@
 <script>
   import { inertia } from '@inertiajs/svelte'
+
+  export let title = ''
+  export let noprofiles = false
+
   let userMenuOpen = false;
 
   function toggleUserMenu() {
@@ -8,10 +12,14 @@
 </script>
 
 <header class="bg-black text-white flex items-center sm:px-24 px-0 gap-4 lg:h-16 h-12 lg:text-xl w-full">
-  <button class="lg:w-48 w-36 text-left" use:inertia={{ href: '/profiles' }}>
-    Профиль
-  </button>
-  <h1 class="flex-grow lg:text-2xl sm:text-lg">Заголовок</h1>
+  {#if !noprofiles}
+    <button class="lg:w-48 w-36 text-left" use:inertia={{ href: '/profiles' }}>
+      Профиль
+    </button>
+  {:else}
+    <div class="lg:w-48 w-36"></div>
+  {/if}
+  <h1 class="flex-grow lg:text-2xl sm:text-lg">{title}</h1>
   <div class="relative">
     <button class="lg:w-48 w-36 text-right" on:click={toggleUserMenu}>Пользователь</button>
     {#if userMenuOpen}
