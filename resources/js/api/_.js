@@ -1,4 +1,4 @@
-import { api } from '@/config.json'
+import { api } from '../config.json'
 
 const base_url = api.url
 
@@ -18,8 +18,8 @@ export const fake_api_method = (type, url, fakeDataFn) => {
     if (typeof fakeDataFn === 'function') {
       return new Promise((resolve) => {
         setTimeout(() => {
-          resolve(fakeDataFn(params))
-        }, 500)
+          resolve(fakeDataFn(params, url_params))
+        }, 250)
       })
     }
     const response = await axios[type](full_url, params, config)

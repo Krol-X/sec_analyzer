@@ -1,9 +1,11 @@
-import { createBillingsStore } from './billings_store'
-import { createProfilesStore } from './profiles_store'
-import { createDialogStore } from './dialog_store'
+import { brokers } from './brokers.svelte.js'
+import { profiles } from './profiles.svelte.js'
+import { billings } from './billings.svelte.js'
+import { securities } from './securities.svelte.js'
 
-export const state = {
-  billings: createBillingsStore(),
-  profiles: createProfilesStore(),
-  dialog: createDialogStore(),
+export default {
+  brokers,
+  profiles,
+  billings,
+  securities
 }
