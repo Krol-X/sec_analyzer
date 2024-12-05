@@ -9,7 +9,14 @@
 			"files": "*.svelte",
 			"options": {
 				"parser": "svelte",
-				"semi": false
+				"semi": false,
+				"useTabs": false
+			}
+		},
+		{
+			"files": "*.js;*.ts",
+			"options": {
+				"useTabs": false
 			}
 		}
 	]

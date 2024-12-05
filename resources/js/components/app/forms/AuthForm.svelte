@@ -1,5 +1,5 @@
 <script>
-	import { Form, Group, Column, Row, Text, Input, Button } from '@/components/core/form'
+	import { Form, Group, Column, Text, Input, Button } from '@/components/core/form'
 
 	export let onLogin = (formState) => {}
 	export let onRegister = (formState) => {}
