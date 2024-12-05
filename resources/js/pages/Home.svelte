@@ -1,11 +1,5 @@
 <script>
-	const { state } = $props()
-
-	state.profiles.update()
+	import AuthForm from '@/components/app/forms/AuthForm.svelte'
 </script>
 
-Home
-
-<p>
-	{JSON.stringify(state.profiles.list)}
-</p>
+<AuthForm />

@@ -13,7 +13,7 @@
 	import { getContext } from 'svelte'
 	const { group } = getContext('form')
 
-	let visible = $derived($group === name)
+	let visible = $derived(group === name)
 </script>
 
 {#if visible}

@@ -1,21 +1,7 @@
 <script>
-	const { children, state } = $props()
-
-	state.brokers.update()
+	const { children } = $props()
 </script>
 
-Layout
-
-<p>
-	{JSON.stringify(state.brokers.list)}
-</p>
-
-<hr />
-
-{@render children?.()}
-
-<style>
-	hr {
-		border: thin solid black;
-	}
-</style>
+<main>
+	{@render children?.()}
+</main>

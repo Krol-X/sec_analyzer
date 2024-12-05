@@ -30,7 +30,7 @@
 
 	onMount(() => {
 		if (value) {
-			$data[name] = value
+			data[name] = value
 		}
 	})
 
@@ -43,7 +43,7 @@
 	{@render children?.()}
 	<input
 		use:typeAction
-		bind:value={$data[name]}
+		bind:value={data[name]}
 		{name}
 		class="app-input px-1 py-0 {controlClass}"
 		style={controlStyle}
