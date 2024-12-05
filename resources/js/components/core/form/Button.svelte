@@ -1,17 +1,17 @@
 <script>
-	import { getContext } from 'svelte';
-	const form = getContext('form');
-
 	/**
-	 * @typedef {Object} Props
+	 * @typedef {Object} props
 	 * @property {string} [class]
 	 * @property {string} [style]
-	 * @property {any} [action]
+	 * @property {function} [action]
 	 * @property {import('svelte').Snippet} [children]
 	 */
 
-	/** @type {Props} */
-	let { class: className = '', style: styles = '', action = () => {}, children } = $props();
+	/** @type {props} */
+	let { class: className = '', style: styles = '', action = (form) => {}, children } = $props()
+
+	import { getContext } from 'svelte'
+	const form = getContext('form')
 </script>
 
 <button

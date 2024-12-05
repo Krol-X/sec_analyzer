@@ -1,44 +1,51 @@
 <script>
-  import { isFunction } from '@/utils/types'
+	/**
+	 * @typedef {Object} props
+	 * @property {import('svelte').Snippet} [children]
+	 * @property {yup.InferType} [schema]
+	 * @property {object} [data]
+	 * @property {any} error - function/store/component
+	 */
 
-  export let schema // yup.InferType
-  export let data // input data
-  export let error = null // function/store/component
+	/** @type {props} */
+	const { children, schema, data, error } = $props()
 
-  let validated = null
-  let validationError = null
-  let errorAsComponent = false
+	import { isFunction } from '@/utils/types'
 
-  async function validateData() {
-    try {
-      const result = await schema.validate(data, { abortEarly: false })
-      validationError = null
-      return result
-    } catch (err) {
-      validationError = err.errors
+	let validated = $state(null)
+	let validationError = $state(null)
+	let errorAsComponent = $state(false)
 
-      errorAsComponent = false
-      if (isFunction(error)) {
-        error(validationError)
-      } else if (isFunction(error?.set)) {
-        error.set(validationError)
-      } else {
-        errorAsComponent = true
-      }
+	async function validateData() {
+		try {
+			const result = await schema.validate(data, { abortEarly: false })
+			validationError = null
+			return result
+		} catch (err) {
+			validationError = err.errors
 
-      return null
-    }
-  }
+			errorAsComponent = false
+			if (isFunction(error)) {
+				error(validationError)
+			} else if (isFunction(error?.set)) {
+				error.set(validationError)
+			} else {
+				errorAsComponent = true
+			}
 
-  $: validateData().then(result => validated = result)
+			return null
+		}
+	}
+
+	$effect(() => {
+		validateData().then((result) => (validated = result))
+	})
 </script>
 
 {#if validated}
-  <slot />
-  <slot name='success' />
+	{@render children?.()}
 {:else if validationError}
-  <slot name='error' />
-  {#if error && errorAsComponent}
-    <svelte:component this={error} errors={validationError} />
-  {/if}
+	{#if errorAsComponent}
+		{@render error?.(validationError)}
+	{/if}
 {/if}

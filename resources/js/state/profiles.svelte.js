@@ -47,7 +47,7 @@ export class Profiles {
   set fields(value) {
     this.#fields = value
   }
-  
+
   async save() {
     let new_profile = null
     if (this.edited === null) {

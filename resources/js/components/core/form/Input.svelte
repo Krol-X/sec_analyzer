@@ -1,9 +1,6 @@
 <script>
-	import { getContext, onMount } from 'svelte';
-	const { data } = getContext('form');
-
 	/**
-	 * @typedef {Object} Props
+	 * @typedef {Object} props
 	 * @property {string} [class]
 	 * @property {string} [style]
 	 * @property {string} [controlClass]
@@ -15,7 +12,7 @@
 	 * @property {import('svelte').Snippet} [after]
 	 */
 
-	/** @type {Props} */
+	/** @type {props} */
 	let {
 		class: className = '',
 		style: styles = '',
@@ -26,16 +23,19 @@
 		value = null,
 		children,
 		after
-	} = $props();
+	} = $props()
+
+	import { getContext, onMount } from 'svelte'
+	const { data } = getContext('form')
 
 	onMount(() => {
 		if (value) {
-			$data[name] = value;
+			$data[name] = value
 		}
-	});
+	})
 
 	function typeAction(node) {
-		node.type = type;
+		node.type = type
 	}
 </script>
 

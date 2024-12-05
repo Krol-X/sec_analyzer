@@ -1,11 +1,11 @@
 <script>
-	const { state } = $props();
+	const { state } = $props()
 
-  state.profiles.update()
+	state.profiles.update()
 </script>
 
 Home
 
 <p>
-  {JSON.stringify(state.profiles.list)}
+	{JSON.stringify(state.profiles.list)}
 </p>

@@ -14,7 +14,7 @@ export class Securities {
 
   async update() {
     this.#loading = true
-    const new_securities = await api.securities.read(null, {billing_id: billings.current})
+    const new_securities = await api.securities.read(null, { billing_id: billings.current })
     if (new_securities) {
       this.#securities = new_securities
     }

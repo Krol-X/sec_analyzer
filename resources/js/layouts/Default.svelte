@@ -1,22 +1,21 @@
 <script>
-	const { children, state } = $props();
+	const { children, state } = $props()
 
-  state.brokers.update()
+	state.brokers.update()
 </script>
 
 Layout
 
-
 <p>
-  {JSON.stringify(state.brokers.list)}
+	{JSON.stringify(state.brokers.list)}
 </p>
 
-<hr>
+<hr />
 
 {@render children?.()}
 
 <style>
-  hr {
-    border: thin solid black;
-  }
+	hr {
+		border: thin solid black;
+	}
 </style>

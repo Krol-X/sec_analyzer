@@ -12,7 +12,7 @@ export class Billings {
 
   async update() {
     this.#loading = true
-    const new_billings = await api.billings.read(null, {profile_id: profiles.current})
+    const new_billings = await api.billings.read(null, { profile_id: profiles.current })
     if (new_billings) {
       this.#billings = new_billings
     }

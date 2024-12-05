@@ -1,9 +1,8 @@
 <script>
-	import { isFunction } from '@/utils/types';
 	/**
-	 * @typedef {Object} Props
-	 * @property {any} data - Array/Store
-	 * @property {any} item - Component
+	 * @typedef {Object} props
+	 * @property {any} data - array/store
+	 * @property {any} item - component
 	 * @property {boolean} [hasLastItem]
 	 * @property {string} [class]
 	 * @property {string} [style]
@@ -12,7 +11,7 @@
 	 * @property {any} [onClick]
 	 */
 
-	/** @type {Props} */
+	/** @type {props} */
 	let {
 		data,
 		item: Item,
@@ -22,7 +21,9 @@
 		itemClass = '',
 		itemStyle = '',
 		onClick = (e, data, is_new) => {}
-	} = $props();
+	} = $props()
+
+	import { isFunction } from '@/utils/types'
 </script>
 
 <div class={className} style={styles}>

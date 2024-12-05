@@ -7,7 +7,7 @@
 	 */
 
 	/** @type {Props} */
-	let { class: className = '', style: styles = '', children } = $props();
+	let { class: className = '', style: styles = '', children } = $props()
 </script>
 
 <div class="app-row flex flex-row {className}" style={styles}>

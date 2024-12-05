@@ -7,7 +7,7 @@ export class Brokers {
 
   async update() {
     this.#loading = true
-    const new_brokers = await api.brokers.read(null, {billing_id: billings.current})
+    const new_brokers = await api.brokers.read(null, { billing_id: billings.current })
     if (new_brokers) {
       this.#brokers = new_brokers
     }
